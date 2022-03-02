@@ -28,5 +28,7 @@ def set_gpu_mode(mode):
 
     distributed = world_size > 1
     use_gpu = mode
+    use_gpu = True
+    gpu_id = 2
     device = torch.device(f"cuda:{gpu_id}" if use_gpu else "cpu")
     torch.backends.cudnn.benchmark = True
