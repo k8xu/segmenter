@@ -45,6 +45,10 @@ from segm.engine import train_one_epoch, evaluate
 @click.option("--eval-freq", default=None, type=int)
 @click.option("--amp/--no-amp", default=False, is_flag=True)
 @click.option("--resume/--no-resume", default=True, is_flag=True)
+# @click.option("--finetune", default=False, is_flag = True)
+@click.option("--finetune_dataset", type = str) 
+
+
 def main(
     log_dir,
     dataset,
@@ -120,7 +124,7 @@ def main(
         version="normal",
         resume=resume,
         dataset_kwargs=dict(
-            dataset=dataset,
+            dataset=finetune_dataset, #i changed this from just "dataset"
             image_size=im_size,
             crop_size=crop_size,
             batch_size=batch_size,
@@ -163,13 +167,13 @@ def main(
     # dataset
     dataset_kwargs = variant["dataset_kwargs"]
 
-    train_loader = create_dataset(dataset_kwargs)
+    train_loader = create_dataset(dataset_kwargs) #have to add if statement in create_dataset
     val_kwargs = dataset_kwargs.copy()
     val_kwargs["split"] = "val"
     val_kwargs["batch_size"] = 1
     val_kwargs["crop"] = False
     val_loader = create_dataset(val_kwargs)
-    n_cls = train_loader.unwrapped.n_cls
+    n_cls = train_loader.unwrapped.n_cls #should change this after we figure out finetuning process
 
     # model
     net_kwargs = variant["net_kwargs"]
@@ -228,7 +232,8 @@ def main(
     if hasattr(model, "module"):
         model_without_ddp = model.module
 
-    val_seg_gt = val_loader.dataset.get_gt_seg_maps()
+    val_seg_gt = val_loader.dataset.get_gt_seg_maps() #gt is ground truth dummy (to anushka from anushka)
+    #we need to figure out how to structure the ground truth for the evaluation
 
     print(f"Train dataset length: {len(train_loader.dataset)}")
     print(f"Val dataset length: {len(val_loader.dataset)}")
@@ -258,9 +263,10 @@ def main(
             if loss_scaler is not None:
                 snapshot["loss_scaler"] = loss_scaler.state_dict()
             snapshot["epoch"] = epoch
-            torch.save(snapshot, checkpoint_path)
+            torch.save(snapshot, checkpoint_path) #probs have to set a checkpoint_path that doesn't overwrite later one (just for this line tho)
 
         # evaluate
+        # We can use this code for inference as well
         eval_epoch = epoch % eval_freq == 0 or epoch == num_epochs - 1
         if eval_epoch:
             eval_logger = evaluate(
