@@ -1,0 +1,168 @@
+- color:
+  - 128
+  - 64
+  - 128
+  id: 11
+  isthing: 0
+  name: paved-area
+- color:
+  - 130
+  - 76
+  - 0
+  id: 13
+  isthing: 0
+  name: dirt
+- color:
+  - 0
+  - 102
+  - 0
+  id: 9
+  isthing: 0
+  name: grass
+- color:
+  - 112
+  - 103
+  - 87
+  id: 34
+  isthing: 0
+  name: gravel
+- color:
+  - 28
+  - 42
+  - 168
+  id: 21
+  isthing: 0
+  name: water
+- color:
+  - 48
+  - 41
+  - 30
+  id: 34
+  isthing: 0
+  name: rocks
+- color:
+  - 0
+  - 50
+  - 89
+  id: 109
+  isthing: 0
+  name: pool
+- color:
+  - 107
+  - 142
+  - 35
+  id: 17
+  isthing: 0
+  name: vegetation
+- color:
+  - 70
+  - 70
+  - 70
+  id: 1
+  isthing: 0
+  name: roof
+- color:
+  - 102
+  - 102
+  - 156
+  id: 0
+  isthing: 0
+  name: wall
+- color:
+  - 254
+  - 228
+  - 12
+  id: 8
+  isthing: 0
+  name: window
+- color:
+  - 254
+  - 148
+  - 12
+  id: 14
+  isthing: 0
+  name: door
+- color:
+  - 190
+  - 153
+  - 153
+  id: 32
+  isthing: 0
+  name: fence
+- color:
+  - 153
+  - 153
+  - 153
+  id: 32
+  isthing: 0
+  name: fence-pole
+- color:
+  - 255
+  - 22
+  - 96
+  id: 12
+  isthing: 0
+  name: person
+- color:
+  - 102
+  - 51
+  - 0
+  id: 126
+  isthing: 0
+  name: dog
+- color:
+  - 9
+  - 143
+  - 150
+  id: 20
+  isthing: 0
+  name: car
+- color:
+  - 119
+  - 11
+  - 32
+  id: 127
+  isthing: 0
+  name: bicycle
+- color:
+  - 51
+  - 51
+  - 0
+  id: 4
+  isthing: 0
+  name: tree
+- color:
+  - 190
+  - 250
+  - 190
+  id: 4
+  isthing: 0
+  name: bald-tree
+- color:
+  - 112
+  - 150
+  - 146
+  id: 124 # id for microwave
+  isthing: 0
+  name: ar-marker
+- color:
+  - 2
+  - 135
+  - 115
+  id: 124 # id for microwave
+  isthing: 0
+  name: obstacle
+- color:
+  - 255
+  - 0
+  - 0
+  id: 124 # id for microwave
+  isthing: 0
+  name: conflicting
+- color:
+  - 0
+  - 0
+  - 0
+  id: 124 # id for microwave
+  isthing: 0
+  name: unlabeled
