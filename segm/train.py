@@ -46,7 +46,7 @@ from segm.engine import train_one_epoch, evaluate
 @click.option("--amp/--no-amp", default=False, is_flag=True)
 @click.option("--resume/--no-resume", default=True, is_flag=True)
 # @click.option("--finetune", default=False, is_flag = True)
-@click.option("--finetune_dataset", type = str) 
+# @click.option("--finetune_dataset", type = str) 
 
 
 def main(
@@ -124,7 +124,7 @@ def main(
         version="normal",
         resume=resume,
         dataset_kwargs=dict(
-            dataset=finetune_dataset, #i changed this from just "dataset"
+            dataset=dataset, #i changed this from just "dataset"
             image_size=im_size,
             crop_size=crop_size,
             batch_size=batch_size,
@@ -263,6 +263,7 @@ def main(
             if loss_scaler is not None:
                 snapshot["loss_scaler"] = loss_scaler.state_dict()
             snapshot["epoch"] = epoch
+            new_checkpoint_path = log_dir / "new_checkpoint.pth"
             torch.save(snapshot, checkpoint_path) #probs have to set a checkpoint_path that doesn't overwrite later one (just for this line tho)
 
         # evaluate

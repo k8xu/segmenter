@@ -4,7 +4,7 @@ from segm.data import ImagenetDataset
 from segm.data import ADE20KSegmentation
 from segm.data import PascalContextDataset
 from segm.data import CityscapesDataset
-from segm.data import AerialDrone #added new import
+from segm.data import AerialDroneDataset #added new import
 from segm.data import Loader
 
 
@@ -26,7 +26,7 @@ def create_dataset(dataset_kwargs):
     elif dataset_name == "cityscapes":
         dataset = CityscapesDataset(split=split, **dataset_kwargs)
     elif dataset_name == "aerial_drone":
-        dataset = AerialDroneDataset(split = splie, **dataset_kwargs) #added this new case 
+        dataset = AerialDroneDataset(split = split, **dataset_kwargs) #added this new case 
     else:
         raise ValueError(f"Dataset {dataset_name} is unknown.")
 
